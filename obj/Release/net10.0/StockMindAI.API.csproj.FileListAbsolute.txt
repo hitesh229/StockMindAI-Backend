@@ -160,3 +160,9 @@ D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Release\net10.0\refin
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Release\net10.0\StockMindAI.API.pdb
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Release\net10.0\StockMindAI.API.genruntimeconfig.cache
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Release\net10.0\ref\StockMindAI.API.dll
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\web.config
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\appsettings.Development.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\appsettings.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\StockMindAI.API.deps.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\StockMindAI.API.runtimeconfig.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\StockMindAI.API.staticwebassets.endpoints.json

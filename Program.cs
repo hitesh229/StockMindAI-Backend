@@ -8,21 +8,23 @@ using StockMindAI.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1. Add DB Context with SQL Server
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
-    ?? "Server=(localdb)\\MSSQLLocalDB;Database=stockmindai;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True";
+// Database Connection
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-// 2. Add Services & HttpClients
+// Services
 builder.Services.AddHttpClient<IAICommunicationService, AICommunicationService>();
 builder.Services.AddScoped<IStockService, StockService>();
 builder.Services.AddScoped<IPortfolioService, PortfolioService>();
 builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IBrokerService, BrokerService>();
 
-// 3. Add Jwt Authentication
-var jwtSecret = builder.Configuration["JwtSettings:Secret"] ?? "SuperSecretKeyStockMindAI_2026_AdvancedSecured_KeyRequirement_MustBe32Chars!";
+// JWT Authentication
+var jwtSecret = builder.Configuration["JwtSettings:Secret"]
+    ?? "SuperSecretKeyStockMindAI_2026_AdvancedSecured_KeyRequirement_MustBe32Chars!";
+
 var key = Encoding.ASCII.GetBytes(jwtSecret);
 
 builder.Services.AddAuthentication(options =>
@@ -34,6 +36,7 @@ builder.Services.AddAuthentication(options =>
 {
     options.RequireHttpsMetadata = false;
     options.SaveToken = true;
+
     options.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuerSigningKey = true,
@@ -47,7 +50,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// 4. Configure CORS
+// CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -60,14 +63,19 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+// Swagger
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "StockMindAI API", Version = "v1" });
-    
-    // Add JWT Authentication support inside Swagger UI
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "StockMindAI API",
+        Version = "v1"
+    });
+
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+        Description = "Bearer Token",
         Name = "Authorization",
         In = ParameterLocation.Header,
         Type = SecuritySchemeType.ApiKey,
@@ -92,34 +100,46 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
-// 5. Apply migrations or create DB if not exists
+// Database Initialization
 try
 {
     using var scope = app.Services.CreateScope();
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.EnsureCreated(); // will create database and tables based on EF models automatically!
+
+    db.Database.Migrate();
 }
 catch (Exception ex)
 {
     Console.WriteLine($"Database initialization failed: {ex.Message}");
 }
 
-// 6. Configure HTTP pipeline
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "StockMindAI API v1");
-    });
-}
+// Enable Swagger in Production
+app.UseSwagger();
 
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "StockMindAI API v1");
+});
+
+// CORS
 app.UseCors("AllowAll");
 
-app.UseHttpsRedirection();
+// Disable on Render
+// app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+// Root endpoint
+app.MapGet("/", () =>
+{
+    return Results.Ok(new
+    {
+        Status = "Running",
+        Application = "StockMindAI API",
+        Time = DateTime.UtcNow
+    });
+});
 
 app.MapControllers();
 
