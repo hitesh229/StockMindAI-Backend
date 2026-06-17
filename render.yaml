@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: stockmindai-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    port: 5000
+    healthCheckPath: /health
+    region: oregon
+    plan: free
+    
+    # Environment variables for production
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://+:5000
+      
+      # Add your production connection string
+      # - key: ConnectionStrings__DefaultConnection
+      #   value: your_production_sql_connection_string
+      
+      # Add your JWT settings
+      # - key: JwtSettings__Secret
+      #   value: your_production_jwt_secret
+      # - key: JwtSettings__Issuer
+      #   value: StockMindAI.API
+      # - key: JwtSettings__Audience
+      #   value: StockMindAI.Client
