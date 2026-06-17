@@ -166,3 +166,15 @@ D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\a
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\StockMindAI.API.deps.json
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\StockMindAI.API.runtimeconfig.json
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\out\StockMindAI.API.staticwebassets.endpoints.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\out\web.config
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\web.config
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\appsettings.Development.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\appsettings.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\out\appsettings.Development.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\out\appsettings.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\out\StockMindAI.API.deps.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\out\StockMindAI.API.runtimeconfig.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\out\StockMindAI.API.staticwebassets.endpoints.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\StockMindAI.API.deps.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\StockMindAI.API.runtimeconfig.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Release\net10.0\publish\StockMindAI.API.staticwebassets.endpoints.json
