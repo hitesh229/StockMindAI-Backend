@@ -178,3 +178,6 @@ D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Debug\net10.0\refint\
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Debug\net10.0\StockMindAI.API.pdb
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Debug\net10.0\StockMindAI.API.genruntimeconfig.cache
 D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\obj\Debug\net10.0\ref\StockMindAI.API.dll
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Debug\net10.0\dotnet-tools.json
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Debug\net10.0\Npgsql.dll
+D:\Hitesh\MCA sem-4 Project\StockMindAI\backend-dotnet\bin\Debug\net10.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
