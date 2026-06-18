@@ -52,7 +52,8 @@ builder.Services.AddAuthentication(options =>
 
 // CORS
 var allowedOrigins = builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() 
-    ?? new[] { "http://localhost:3000", "http://localhost:5000" };
+    ?? (Environment.GetEnvironmentVariable("ALLOWED_ORIGINS")?.Split(",") 
+        ?? new[] { "http://localhost:3000", "http://localhost:5000" });
 
 builder.Services.AddCors(options =>
 {
@@ -104,6 +105,9 @@ builder.Services.AddSwaggerGen(c =>
 
 var app = builder.Build();
 
+// CORS - Must be before authentication and routing
+app.UseCors("AllowFrontend");
+
 // Database Initialization
 try
 {
@@ -124,9 +128,6 @@ app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "StockMindAI API v1");
 });
-
-// CORS
-app.UseCors("AllowFrontend");
 
 // Disable on Render
 // app.UseHttpsRedirection();
