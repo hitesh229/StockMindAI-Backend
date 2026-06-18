@@ -9,7 +9,9 @@ using StockMindAI.API.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Database Connection
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? Environment.GetEnvironmentVariable("DATABASE_URL")
+    ?? Environment.GetEnvironmentVariable("DefaultConnection");
 
 if (!string.IsNullOrEmpty(connectionString) && (connectionString.StartsWith("postgres://", StringComparison.OrdinalIgnoreCase) || connectionString.StartsWith("postgresql://", StringComparison.OrdinalIgnoreCase)))
 {
