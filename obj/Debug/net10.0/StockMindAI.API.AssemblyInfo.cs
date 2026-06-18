@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StockMindAI.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d23a2ad0c63bd5b5d1fb2a641fef16d19ac06b72")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55543f983559dd7bc24e3293b9ea2e22175cf9b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("StockMindAI.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StockMindAI.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
